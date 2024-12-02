@@ -1,0 +1,7 @@
+session_url = "https://demo-api-capital.backend-capital.com/api/v1/session"
+gbpusd_url = "https://demo-api-capital.backend-capital.com/api/v1/prices/GBPUSD?resolution=HOUR&from="
+gold_url = "https://demo-api-capital.backend-capital.com/api/v1/prices/GOLD?resolution=HOUR&from="
+api_key = "kzjB5ynuruN23kPf"
+identifier = "toby.s.nichol@gmail.com"
+password = "RecogPCdem1234!"
+positions_url = "https://demo-api-capital.backend-capital.com/api/v1/positions"

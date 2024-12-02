@@ -1,0 +1,40 @@
+{
+  'position': {
+    'contractSize': 1,
+    'createdDate': '2024-05-21T18:48:26.335',
+    'createdDateUTC': '2024-05-21T17:48:26.335',
+    'dealId': '00007090-0055-311e-0000-0000809d13e6',
+    'dealReference': 'p_00007090-0055-311e-0000-0000809d13e6',
+    'workingOrderId': '00007090-0055-311e-0000-0000809d13e5',
+    'size': 100000.0,
+    'leverage': 30,
+    'upl': -47.99,
+    'direction': 'SELL',
+    'level': 1.27051,
+    'currency': 'USD',
+    'guaranteedStop': False
+  },
+  'market': {
+    'instrumentName': 'GBP/USD',
+    'expiry': '-',
+    'marketStatus': 'TRADEABLE',
+    'epic': 'GBPUSD',
+    'symbol': 'GBP/USD',
+    'instrumentType': 'CURRENCIES',
+    'lotSize': 1,
+    'high': 1.27264,
+    'low': 1.26859,
+    'percentageChange': 0.03,
+    'netChange': 0.0009,
+    'bid': 1.27099,
+    'offer': 1.27112,
+    'updateTime': '2024-05-21T19:02:23.841',
+    'updateTimeUTC': '2024-05-21T18:02:23.841',
+    'delayTime': 0,
+    'streamingPricesAvailable': True,
+    'scalingFactor': 1,
+    'marketModes': [
+      'REGULAR'
+    ]
+  }
+}
