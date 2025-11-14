@@ -32,21 +32,25 @@ def start_session():
         xst = response1.headers['X-SECURITY-TOKEN']
         cst = response1.headers['CST']
         print("started sesh")
+    else:
+        text = str(response1.status_code) + " returned from method: start_session" + "\ntrying again..."
+        print(text)
 
 # --- 2. Chunked Data Fetching Function ---
-def fetch_all_data(epic, start_date, end_date):
+def fetch_all_data(epic, start_date, end_date, resolution="MINUTE_15"):
     """
     Fetches all 15-minute data in chunks between a start and end date.
     """
     all_prices = []
     current_date = start_date
     start_session()
-    print(f"Starting data fetch for {epic} from {start_date.isoformat()} to {end_date.isoformat()}")
+    print(f"Attempting to fetch data for {epic} from {start_date.isoformat()} to {end_date.isoformat()}at {resolution} resolution.")
 
     while current_date < end_date:
         # Format URL for the API call
         from_iso = current_date.isoformat()
-        url = f"{API_BASE_URL}/api/v1/prices/{epic}?resolution=MINUTE_15&from={from_iso}&max=240"
+        print(from_iso)
+        url = f"{API_BASE_URL}/api/v1/prices/{epic}?resolution={resolution}&from={from_iso}&max=1000"
         SESH_HEADERS = {
             'X-SECURITY-TOKEN': xst,
             'CST': cst
@@ -55,6 +59,12 @@ def fetch_all_data(epic, start_date, end_date):
             # In your real code, you would use your authenticated session
             response = requests.get(url, headers=SESH_HEADERS)
             response.raise_for_status()  # Raises an exception for bad responses (4xx or 5xx)
+
+            if response.status_code == 200:
+                print("started data fetching")
+            else:
+                text = str(response.status_code) + " returned from method: fetch_all_data" + "\ntrying again..."
+                print(text)
 
             data = response.json()
             prices = data.get('prices', [])

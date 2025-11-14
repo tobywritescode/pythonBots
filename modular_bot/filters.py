@@ -13,6 +13,9 @@ class BaseFilter:
         """
         raise NotImplementedError("You must implement the apply method!")
 
+    def get_params(self) -> dict:
+        """Returns the filter's parameters as a dictionary."""
+        raise NotImplementedError("You must implement the get_params method!")
 
 class AdxFilter(BaseFilter):
     """
@@ -34,4 +37,12 @@ class AdxFilter(BaseFilter):
 
         print(f"Applying ADX Filter (ADX > {self.adx_threshold})...")
         return df[self.adx_col] > self.adx_threshold
+
+    def get_params(self) -> dict:
+        """Returns the filter's parameters for reporting."""
+        return {
+            'name': self.__class__.__name__,
+            'adx_period': self.adx_period,
+            'adx_threshold': self.adx_threshold
+        }
 
